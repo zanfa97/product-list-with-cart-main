@@ -1,0 +1,6 @@
+<h1>{{ heading() }}</h1>
+<div class="products-grid">
+  @for (product of products(); track product.name) {
+    <app-product-card [product]="product" />
+  }
+</div>
