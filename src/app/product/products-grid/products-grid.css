@@ -1,3 +1,8 @@
+:host {
+  display: block;
+  margin-inline: 20px;
+}
+
 h1 {
   color: var(--rose-900);
 }

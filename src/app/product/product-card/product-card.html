@@ -4,7 +4,9 @@
     <source media="(min-width: 600px)" [srcset]="product().image.tablet" />
     <img [src]="product().image.mobile" [alt]="product().name" />
   </picture>
-  <p>{{ product().category }}</p>
-  <h2>{{ product().name }}</h2>
-  <p>{{ product().price | currency: 'EUR' }}</p>
+  <div class="product-info">
+    <p class="category">{{ product().category }}</p>
+    <h2 class="name">{{ product().name }}</h2>
+    <p class="price">{{ product().price | currency: 'EUR' }}</p>
+  </div>
 </article>
