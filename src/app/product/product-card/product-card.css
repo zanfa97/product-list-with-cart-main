@@ -2,6 +2,7 @@
   display: block;
   max-width: 320px;
   margin-block: 22px;
+  position: relative;
 }
 
 img {
