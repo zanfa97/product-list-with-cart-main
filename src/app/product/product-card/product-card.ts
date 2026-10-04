@@ -1,5 +1,5 @@
 import { CurrencyPipe } from '@angular/common';
-import { Component, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 import { Product } from '../product.model';
 import { AddToCartButton } from '../add-to-cart-button/add-to-cart-button';
 
@@ -11,9 +11,9 @@ import { AddToCartButton } from '../add-to-cart-button/add-to-cart-button';
 })
 export class ProductCard {
   product = input.required<Product>();
-  add = output<Product>();
+  productAdded = output<Product>();
 
   addToCart() {
-    this.add.emit(this.product());
+    this.productAdded.emit(this.product());
   }
 }

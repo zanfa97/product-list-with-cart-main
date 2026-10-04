@@ -1,6 +1,6 @@
 <h1>{{ heading() }}</h1>
 <div class="products-grid">
   @for (product of products(); track product.name) {
-    <app-product-card (add)="addToCart($event)" [product]="product" />
+    <app-product-card (productAdded)="addProductToCart($event)" [product]="product" />
   }
 </div>
