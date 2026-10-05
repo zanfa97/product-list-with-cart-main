@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, computed, inject, OnInit } from '@angular/core';
-import { CartService } from '../cart.service';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { CartItem } from '../cart-item/cart-item';
+import { CartService } from '../cart.service';
 import { EmptyCart } from '../empty-cart/empty-cart';
 
 @Component({
@@ -16,4 +16,8 @@ export class CartSummary {
   protected itemsQuantity = computed(() =>
     this.allItems().reduce((quantity, item) => quantity + item.quantity, 0),
   );
+
+  removeItemFromCart(productId: number) {
+    this.cartService.removeItem(productId);
+  }
 }

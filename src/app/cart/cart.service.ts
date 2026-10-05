@@ -35,4 +35,8 @@ export class CartService {
       );
     });
   }
+
+  removeItem(productId: number) {
+    this.items.update((items) => items.filter((item) => item.productId !== productId));
+  }
 }
