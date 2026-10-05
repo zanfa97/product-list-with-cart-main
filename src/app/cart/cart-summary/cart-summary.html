@@ -1,4 +1,4 @@
-<h2>Your Cart</h2>
+<h2>Your Cart ({{ itemsQuantity() }})</h2>
 @for (item of allItems(); track item.name) {
   <app-cart-item [item]="item" />
   <button type="button">Remove</button>

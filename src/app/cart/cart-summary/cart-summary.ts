@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
 import { CartItem } from '../cart-item/cart-item';
 
@@ -10,6 +10,9 @@ import { CartItem } from '../cart-item/cart-item';
   changeDetection: ChangeDetectionStrategy.Eager,
 })
 export class CartSummary {
-  protected readonly cartService = inject(CartService);
+  private readonly cartService = inject(CartService);
   protected readonly allItems = this.cartService.items.asReadonly();
+  protected itemsQuantity = computed(() =>
+    this.allItems().reduce((quantity, item) => quantity + item.quantity, 0),
+  );
 }
