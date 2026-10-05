@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component, computed, inject, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
 import { CartItem } from '../cart-item/cart-item';
+import { EmptyCart } from '../empty-cart/empty-cart';
 
 @Component({
   selector: 'app-cart-summary',
-  imports: [CartItem],
+  imports: [CartItem, EmptyCart],
   templateUrl: './cart-summary.html',
   styleUrl: './cart-summary.css',
   changeDetection: ChangeDetectionStrategy.Eager,

@@ -1,0 +1,12 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+p {
+  color: var(--rose-500);
+  font-weight: var(--fw-semibold);
+  margin-block-start: 0;
+}

@@ -1,0 +1,13 @@
+.prices {
+  display: flex;
+  gap: 10px;
+}
+
+.name {
+  font-size: 0.875rem;
+}
+
+.quantity {
+  color: var(--red);
+  font-weight: var(--fw-semibold);
+}

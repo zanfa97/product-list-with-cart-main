@@ -2,4 +2,6 @@
 @for (item of allItems(); track item.name) {
   <app-cart-item [item]="item" />
   <button type="button">Remove</button>
+} @empty {
+  <app-empty-cart />
 }

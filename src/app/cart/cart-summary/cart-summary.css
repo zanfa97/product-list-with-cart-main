@@ -1,4 +1,13 @@
 :host {
   display: block;
   margin-inline: 20px;
+  background-color: white;
+  padding: 16px;
+  border-radius: 10px;
 }
+
+h2 {
+  color: var(--red);
+  font-weight: var(--fw-bold);
+}
+
