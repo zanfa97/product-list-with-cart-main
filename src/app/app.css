@@ -1,4 +1,4 @@
 :host {
   display: grid;
-  place-items: center;
+  justify-content: center;
 }
