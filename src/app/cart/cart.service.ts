@@ -10,6 +10,7 @@ export class CartService {
 
   addToCart(product: Product) {
     const newItem: CartItem = {
+      productId: product.id,
       name: product.name,
       individualPrice: product.price,
       quantity: 1,
@@ -17,14 +18,14 @@ export class CartService {
     };
 
     this.items.update((items) => {
-      const existing = items.find((item) => item.name === product.name);
+      const existing = items.find((item) => item.productId === product.id);
 
       if (!existing) {
         return [...items, newItem];
       }
 
       return items.map((item) =>
-        item.name === product.name
+        item.productId === product.id
           ? {
               ...item,
               quantity: item.quantity + 1,
