@@ -2,10 +2,11 @@ import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/c
 import { CartItem } from '../cart-item/cart-item';
 import { CartService } from '../cart.service';
 import { EmptyCart } from '../empty-cart/empty-cart';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-cart-summary',
-  imports: [CartItem, EmptyCart],
+  imports: [CartItem, EmptyCart, CurrencyPipe],
   templateUrl: './cart-summary.html',
   styleUrl: './cart-summary.css',
   changeDetection: ChangeDetectionStrategy.Eager,
@@ -15,6 +16,9 @@ export class CartSummary {
   protected readonly allItems = this.cartService.items.asReadonly();
   protected itemsQuantity = computed(() =>
     this.allItems().reduce((quantity, item) => quantity + item.quantity, 0),
+  );
+  protected totalPrice = computed(() =>
+    this.allItems().reduce((total, item) => total + item.totalPrice, 0),
   );
 
   removeItemFromCart(productId: number) {
