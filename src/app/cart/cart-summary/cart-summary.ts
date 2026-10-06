@@ -21,6 +21,8 @@ export class CartSummary {
     this.allItems().reduce((total, item) => total + item.totalPrice, 0),
   );
 
+  protected isCartEmpty = computed(() => this.allItems().length === 0);
+
   removeItemFromCart(productId: number) {
     this.cartService.removeItem(productId);
   }

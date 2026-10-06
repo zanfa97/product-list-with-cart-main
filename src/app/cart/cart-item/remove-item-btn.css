@@ -1,0 +1,14 @@
+.remove-item-btn {
+  display: inline-flex;
+  color: hsl(14, 25%, 72%);
+  border: 2px hsl(14, 25%, 72%) solid;
+  border-radius: 10px;
+  background-color: transparent;
+  padding: .2rem;
+  cursor: pointer;
+}
+
+.remove-item-btn:hover {
+  border-color: var(--rose-900);
+  color: var(--rose-900);
+}

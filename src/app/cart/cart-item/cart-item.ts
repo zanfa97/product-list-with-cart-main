@@ -6,7 +6,7 @@ import { CurrencyPipe } from '@angular/common';
   selector: 'app-cart-item',
   imports: [CurrencyPipe],
   templateUrl: './cart-item.html',
-  styleUrl: './cart-item.css',
+  styleUrls: ['./cart-item.css', './remove-item-btn.css']
 })
 export class CartItem {
   readonly item = input.required<Item>();

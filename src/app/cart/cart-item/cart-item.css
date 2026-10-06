@@ -1,6 +1,16 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .prices {
   display: flex;
   gap: 10px;
+}
+
+.prices > p {
+  margin-block-start: 0;
 }
 
 .name {
@@ -9,5 +19,14 @@
 
 .quantity {
   color: var(--red);
+  font-weight: var(--fw-semibold);
+}
+
+.individual-price {
+  color: var(--rose-300);
+}
+
+.total-price {
+  color: var(--rose-500);
   font-weight: var(--fw-semibold);
 }

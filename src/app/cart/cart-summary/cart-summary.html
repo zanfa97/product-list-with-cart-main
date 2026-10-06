@@ -1,7 +1,12 @@
 <h2>Your Cart ({{ itemsQuantity() }})</h2>
-@for (item of allItems(); track item.name) {
+@for (item of allItems(); track item.productId) {
   <app-cart-item [item]="item" (removed)="removeItemFromCart($event)" />
 } @empty {
   <app-empty-cart />
 }
-<p>Order Total {{ totalPrice() | currency }}</p>
+@if (!isCartEmpty()) {
+  <div class="order-total">
+    <p>Order Total</p>
+    <span class="price">{{ totalPrice() | currency }}</span>
+  </div>
+}
