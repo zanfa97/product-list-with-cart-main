@@ -37,11 +37,7 @@ export class CartService {
   }
 
   removeItem(productId: number) {
-    this.items.update((items) =>
-      items.filter((item) => {
-        return item.productId !== productId;
-      }),
-    );
+    this.items.update((items) => items.filter((item) => item.productId !== productId));
   }
 
   incrementQuantity(productId: number) {
@@ -54,11 +50,7 @@ export class CartService {
   decrementQuantity(productId: number) {
     const existing = this.items().find((item) => item.productId === productId);
 
-    if (existing?.quantity === 1) {
-      this.removeItem(productId);
-    }
-
-    if (existing) {
+    if (existing && existing.quantity > 1) {
       this.updateQuantity(productId, existing.quantity - 1);
     }
   }
