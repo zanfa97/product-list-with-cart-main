@@ -37,6 +37,43 @@ export class CartService {
   }
 
   removeItem(productId: number) {
-    this.items.update((items) => items.filter((item) => item.productId !== productId));
+    this.items.update((items) =>
+      items.filter((item) => {
+        return item.productId !== productId;
+      }),
+    );
+  }
+
+  incrementQuantity(productId: number) {
+    const existing = this.items().find((item) => item.productId === productId);
+    if (existing) {
+      this.updateQuantity(productId, existing.quantity + 1);
+    }
+  }
+
+  decrementQuantity(productId: number) {
+    const existing = this.items().find((item) => item.productId === productId);
+
+    if (existing?.quantity === 1) {
+      this.removeItem(productId);
+    }
+
+    if (existing) {
+      this.updateQuantity(productId, existing.quantity - 1);
+    }
+  }
+
+  private updateQuantity(productId: number, newQuantity: number) {
+    this.items.update((items) =>
+      items.map((item) =>
+        item.productId === productId
+          ? {
+              ...item,
+              quantity: newQuantity,
+              totalPrice: newQuantity * item.individualPrice,
+            }
+          : item,
+      ),
+    );
   }
 }

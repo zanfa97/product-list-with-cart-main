@@ -33,3 +33,13 @@ img {
 .product-info > * {
   margin: 0;
 }
+
+.quantity-stepper {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+.quantity-stepper > .quantity {
+  margin-block-start: 0;
+}
