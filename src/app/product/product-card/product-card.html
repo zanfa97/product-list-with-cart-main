@@ -13,9 +13,9 @@
     <button (click)="addToCart()" add-to-cart-btn type="button" label="Add to Cart"></button>
   } @else {
     <div class="quantity-stepper">
-      <button type="button" (click)="incrementQuantity(product().id)">+</button>
-      <p class="quantity">{{ quantity() }}</p>
       <button type="button" (click)="decrementQuantity(product().id)">-</button>
+      <p class="quantity">{{ quantity() }}</p>
+      <button type="button" (click)="incrementQuantity(product().id)">+</button>
     </div>
   }
 </article>
