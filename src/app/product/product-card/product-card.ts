@@ -3,10 +3,11 @@ import { ChangeDetectionStrategy, Component, computed, inject, input, output } f
 import { Product } from '../product.model';
 import { AddToCartButton } from '../add-to-cart-button/add-to-cart-button';
 import { CartService } from '../../cart/cart.service';
+import { QuantityStepper } from '../quantity-stepper/quantity-stepper';
 
 @Component({
   selector: 'app-product-card',
-  imports: [CurrencyPipe, AddToCartButton],
+  imports: [CurrencyPipe, AddToCartButton, QuantityStepper],
   templateUrl: './product-card.html',
   styleUrl: './product-card.css',
 })
@@ -23,11 +24,7 @@ export class ProductCard {
     this.productAdded.emit(this.product());
   }
 
-  incrementQuantity(productId: number) {
-    this.cartService.incrementQuantity(productId);
-  }
-
-  decrementQuantity(productId: number) {
-    this.cartService.decrementQuantity(productId);
+  updateQuantity(newQuantity: number) {
+    this.cartService.updateQuantity(this.product().id, newQuantity);
   }
 }

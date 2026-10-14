@@ -10,12 +10,18 @@
     <p class="price">{{ product().price | currency: 'EUR' }}</p>
   </div>
   @if (quantity() === 0) {
-    <button (click)="addToCart()" add-to-cart-btn type="button" label="Add to Cart"></button>
+    <button
+      (click)="addToCart()"
+      add-to-cart-btn
+      type="button"
+      label="Add to Cart"
+      [ariaLabel]="'Add ' + product().name + ' to Cart'"
+    ></button>
   } @else {
-    <div class="quantity-stepper">
-      <button type="button" (click)="decrementQuantity(product().id)">-</button>
-      <p class="quantity">{{ quantity() }}</p>
-      <button type="button" (click)="incrementQuantity(product().id)">+</button>
-    </div>
+    <app-quantity-stepper
+      [quantity]="quantity()"
+      (increment)="updateQuantity($event)"
+      (decrement)="updateQuantity($event)"
+    />
   }
 </article>

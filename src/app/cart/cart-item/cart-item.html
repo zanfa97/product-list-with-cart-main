@@ -6,7 +6,12 @@
     <p class="total-price">{{ item().totalPrice | currency }}</p>
   </div>
 </div>
-<button class="remove-item-btn" (click)="removeItem()" type="button">
+<button
+  class="remove-item-btn"
+  (click)="removeItem()"
+  type="button"
+  [ariaLabel]="'Remove ' + item().name + ' from cart'"
+>
   <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="none" viewBox="0 0 10 10">
     <path
       fill="currentColor"

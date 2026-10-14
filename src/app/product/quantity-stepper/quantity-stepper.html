@@ -1,1 +1,5 @@
-<p>quantity-stepper works!</p>
+<div class="quantity-stepper">
+  <button type="button" (click)="decrementQuantity()">-</button>
+  <p class="quantity">{{ quantity() }}</p>
+  <button type="button" (click)="incrementQuantity()">+</button>
+</div>
