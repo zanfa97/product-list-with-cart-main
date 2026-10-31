@@ -1,8 +1,9 @@
 :host {
-  margin-inline: 20px;
+  display: block;
+  align-self: start;
   background-color: white;
   border-radius: 10px;
-  padding-inline: 5rem;
+  padding: 1.5rem;
 }
 
 h2 {

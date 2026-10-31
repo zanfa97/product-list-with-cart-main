@@ -1,6 +1,5 @@
 :host {
   display: block;
-  margin-inline: 20px;
 }
 
 h1 {
@@ -11,4 +10,16 @@ h1 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 360px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
 }
