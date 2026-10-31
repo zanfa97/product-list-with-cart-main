@@ -32,3 +32,8 @@ img {
 .product-info > * {
   margin: 0;
 }
+
+.added {
+  outline: 2px solid var(--red);
+  border-radius: 10px;
+}

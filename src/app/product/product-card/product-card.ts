@@ -1,8 +1,8 @@
 import { CurrencyPipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, computed, inject, input, output } from '@angular/core';
-import { Product } from '../product.model';
-import { AddToCartButton } from '../add-to-cart-button/add-to-cart-button';
+import { Component, computed, inject, input, output } from '@angular/core';
 import { CartService } from '../../cart/cart.service';
+import { AddToCartButton } from '../add-to-cart-button/add-to-cart-button';
+import { Product } from '../product.model';
 import { QuantityStepper } from '../quantity-stepper/quantity-stepper';
 
 @Component({
@@ -15,9 +15,14 @@ export class ProductCard {
   product = input.required<Product>();
   productAdded = output<Product>();
   private readonly cartService = inject(CartService);
+
   quantity = computed(
     () =>
       this.cartService.items().find((item) => item.productId === this.product().id)?.quantity ?? 0,
+  );
+
+  isInCart = computed(() =>
+    this.cartService.items().some((item) => item.productId === this.product().id),
   );
 
   addToCart() {

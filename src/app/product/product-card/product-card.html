@@ -1,5 +1,5 @@
 <article>
-  <picture>
+  <picture [class.added]="isInCart()">
     <source media="(min-width: 769px)" [srcset]="product().image.desktop" />
     <source media="(min-width: 361px)" [srcset]="product().image.tablet" />
     <img [src]="product().image.mobile" [alt]="product().name" />
