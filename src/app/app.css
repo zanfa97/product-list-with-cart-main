@@ -1,5 +1,6 @@
 :host {
-  display: grid;
+  display: flex;
+  align-items: flex-start;
   justify-content: center;
   background-color: var(--rose-50);
 }

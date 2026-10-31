@@ -1,6 +1,6 @@
 :host {
   display: block;
-  max-width: 320px;
+  max-width: 15rem;
   margin-block: 22px;
   position: relative;
 }
@@ -33,5 +33,3 @@ img {
 .product-info > * {
   margin: 0;
 }
-
-
